@@ -1,4 +1,4 @@
-import Preprocessor from './preprocessor.js'
-import Reporter from './reporter.js'
+import preprocessor from './preprocessor.js'
+import reporter from './reporter.js'
 
-export { Preprocessor, Reporter }
+export { preprocessor, reporter }
