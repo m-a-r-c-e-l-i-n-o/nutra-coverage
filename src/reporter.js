@@ -1,10 +1,10 @@
 import Path from 'path'
 import Istanbul from'istanbul'
 import RemapIstanbul from 'remap-istanbul'
-import _ from 'lodash'
 
 var Private = {
     getReporters (reporters) {
+        const _ = this.system.helper._
         if (!_.isArray(reporters)) {
             reporters = []
         }

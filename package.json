@@ -1,6 +1,6 @@
 {
   "name": "nutra-coverage",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "The \"nutra-coverage\" module is an adaption of the Istanbul code coverage for \"N.U.T.R.A.\" unit test runner.",
   "main": "dist/nutra-coverage.js",
   "scripts": {
@@ -33,7 +33,6 @@
   },
   "dependencies": {
     "istanbul": "^0.4.3",
-    "lodash": "^4.13.1",
     "remap-istanbul": "^0.6.4"
   }
 }
