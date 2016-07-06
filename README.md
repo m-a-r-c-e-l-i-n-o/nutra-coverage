@@ -6,6 +6,10 @@ The "nutra-coverage" module is an adaption of the Istanbul code coverage for "[N
 npm install nutra nutra-coverage --save-dev
 ```
 
+## Relevant Presets:
+- [jasmine-coverage](https://github.com/m-a-r-c-e-l-i-n-o/nutra-jasmine-coverage-preset)
+- [jasmine-coverage-babel](https://github.com/m-a-r-c-e-l-i-n-o/nutra-jasmine-coverage-babel-preset)
+
 ## Add Plugin Configuration:
 Create a "nutra.config.js" config file in the root of your project and populate it with the following:
 ```js
