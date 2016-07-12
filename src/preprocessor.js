@@ -1,3 +1,5 @@
+import Fs from'fs-extra'
+import Path from'path'
 import Istanbul from'istanbul'
 
 const preprocessor = (events, system, opts) => {
@@ -6,9 +8,12 @@ const preprocessor = (events, system, opts) => {
             resolve()
         })
     }
-    events.onFileLoad = (source, filename) => {
+    events.onFileLoad = (source, filename, key) => {
         const instrumenter = new Istanbul.Instrumenter()
-        return instrumenter.instrumentSync(source, filename)
+        const tmpFilename = Path.join(system.tmpDirectory, 'coverage', key)
+        Fs.ensureFileSync(tmpFilename)
+        Fs.writeFileSync(tmpFilename, source)
+        return instrumenter.instrumentSync(source, tmpFilename)
     }
     events.onExit = () => {
         return new Promise((resolve, reject) => {
