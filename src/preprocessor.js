@@ -3,6 +3,9 @@ import Path from'path'
 import Istanbul from'istanbul'
 
 const preprocessor = (events, system, opts) => {
+    if (typeof __coverage__ !== 'undefined') {
+        __coverage__ = undefined
+    }
     events.onLoad = () => {
         return new Promise((resolve, reject) => {
             resolve()
