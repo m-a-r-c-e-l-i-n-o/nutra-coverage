@@ -1,6 +1,6 @@
 {
   "name": "nutra-coverage",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "The \"nutra-coverage\" module is an adaption of the Istanbul code coverage for \"N.U.T.R.A.\" unit test runner.",
   "main": "dist/nutra-coverage.js",
   "scripts": {
@@ -29,11 +29,13 @@
   "homepage": "https://github.com/m-a-r-c-e-l-i-n-o/nutra-coverage#readme",
   "devDependencies": {
     "babel-cli": "^6.9.0",
-    "babel-preset-es2016": "^6.0.11"
+    "babel-preset-es2016-node5": "^1.1.2"
   },
   "dependencies": {
     "fs-extra": "^0.30.0",
+    "inline-source-map-comment": "^1.0.5",
     "istanbul": "^0.4.3",
-    "remap-istanbul": "github:m-a-r-c-e-l-i-n-o/remap-istanbul"
+    "remap-istanbul": "github:m-a-r-c-e-l-i-n-o/remap-istanbul",
+    "sorcery": "^0.10.0"
   }
 }
