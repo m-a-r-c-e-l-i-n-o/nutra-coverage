@@ -1,11 +1,11 @@
 {
   "name": "nutra-coverage",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "The \"nutra-coverage\" module is an adaption of the Istanbul code coverage for \"N.U.T.R.A.\" unit test runner.",
   "main": "dist/nutra-coverage.js",
   "scripts": {
     "test": "test",
-    "build": "babel src --out-dir dist",
+    "build": "babel src --out-dir dist --source-maps inline",
     "prepublish": "npm run build"
   },
   "repository": {

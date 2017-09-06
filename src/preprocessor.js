@@ -20,13 +20,27 @@ const preprocessor = (events, system, opts) => {
         const sourceMap = chain.apply()
         sourceMap.file = tmpFilename
         sourceMap.sources = [sourceFilename]
-        const soureWithMap = source + '\n' + inlineSourceMapComment(sourceMap)
+        const sourceMapComment = inlineSourceMapComment(sourceMap)
+        const soureWithMap = source + '\n' + sourceMapComment
 
         fs.ensureFileSync(tmpFilename)
         fs.writeFileSync(tmpFilename, soureWithMap)
 
-        const instrumenter = new Istanbul.Instrumenter()
-        return instrumenter.instrumentSync(source, tmpFilename)
+        const options = {
+            codeGenerationOptions: {
+                sourceMap: tmpFilename,
+                sourceMapWithCode: true,
+                sourceContent: source
+            }
+        }
+        const instrumenter = new Istanbul.Instrumenter(options)
+        const instrumented = instrumenter.instrumentSync(source, tmpFilename)
+        const instrumentedMap = instrumenter.lastSourceMap()
+        const instrumentedMapComment = inlineSourceMapComment(
+            instrumentedMap, { sourcesContent: true }
+        )
+
+        return instrumented + '\n' + sourceMapComment
     }
     events.onExit = () => {
         return new Promise((resolve, reject) => {
